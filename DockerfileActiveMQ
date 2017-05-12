@@ -1,0 +1,10 @@
+#DOCKERFILE FOR AMQ
+#METADATA
+# { 
+# "imageName":"ActiveMQ", 
+# "tag":"v1",
+# "description":"This docker image pulled from docker hub webcenter/activemq"
+# }
+#METADATA
+
+FROM webcenter/activemq

@@ -1,0 +1,12 @@
+
+#DOCKERFILE FOR TF
+#METADATA
+# { 
+# "imageName":"TensorFlow",
+# "tag":"v1",
+# "description":"This docker image pulled from docker hub gcr.io/tensorflow/tensorflow"
+# }
+#METADATA
+
+FROM gcr.io/tensorflow/tensorflow
+

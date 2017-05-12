@@ -1,0 +1,18 @@
+
+#METADATA
+# { 
+# "imageName":"redis", 
+# "tag":"v1",
+# "description":"This docker image created from base ubuntu 14.04 and then installed redis server on it. including both redis master and redis sentinel"
+# }
+FROM ubuntu:14.04
+RUN apt-get update && apt-get install -y python-software-properties software-properties-common &&\
+add-apt-repository -y ppa:rwky/redis && \
+apt-get update && apt-get install -y redis-server
+RUN sed -i 's:6379:6479:' /etc/redis/redis.conf
+RUN echo "bind 0.0.0.0" >> /etc/redis/redis.conf
+RUN printf "port 26379\nsentinel monitor mymaster 127.0.0.1 6379 2\nsentinel down-after-milliseconds mymaster 5000\nsentinel failover-timeout mymaster 5000\nsentinel parallel-syncs mymaster 1" >> /etc/redis/sentinel.conf
+RUN echo "redis-server /etc/redis/redis.conf && ping localhost" >> /root/master
+RUN echo "redis-sentinel /etc/redis/sentinel.conf && ping localhost" >> /root/sentinel
+RUN chmod +x /root/master && chmod +x /root/sentinel
+CMD redis-server /etc/redis/redis.conf

@@ -1,0 +1,10 @@
+#DOCKERFILE FOR TF
+#METADATA
+# { 
+# "imageName":"Cassandra", 
+# "tag":"v1",
+# "description":"This docker image pulled from docker hub cassandra"
+# }
+#METADATA
+
+FROM cassandra

@@ -1,0 +1,8 @@
+#METADATA
+# { 
+# "imageName":"hadoop", 
+# "tag":"v1",
+# "description":"This docker image pulled from docker hub shahiinn/hadoop:v1"
+# }
+#METADATA
+FROM shahiinn/hadoop:v1
